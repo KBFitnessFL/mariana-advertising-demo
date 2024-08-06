@@ -89,7 +89,7 @@ app.post('/ad', (req, res) => {
     // }
 
     const imageURL1 = `https://uploads-ssl.webflow.com/6667990ab718954576a216de/66b2914d8e7eaeba18b84ee6_Back%20To%20School%20(1).jpg`;
-    const imageURL2 = `https://via.placeholder.com/1200x628/${color2}/FFFFFF.png?text=${encodeURI(`Ad for ${user}`)}`;
+    // const imageURL2 = `https://via.placeholder.com/1200x628/${color2}/FFFFFF.png?text=${encodeURI(`Ad for ${user}`)}`;
     // let redirectURL = `${baseURL}/landing-page`;
     let redirectURL = `#`;
 
