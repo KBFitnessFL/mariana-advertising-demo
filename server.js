@@ -70,34 +70,35 @@ app.get('/landing-page', (req, res) => {
  * - show how to provide different redirect urls to different user segments
  */
 app.post('/ad', (req, res) => {
-    const userID = req.body.user_id;
+    // const userID = req.body.user_id;
 
-    let user = 'anonymous users';
-    if (userID) {
-        if (isVipUser(userID)) {
-          user = `VIP users`;
-        } else {
-          user = `default users`;
-        }
-    }
+    // let user = 'anonymous users';
+    // if (userID) {
+    //     if (isVipUser(userID)) {
+    //       user = `VIP users`;
+    //     } else {
+    //       user = `default users`;
+    //     }
+    // }
 
-    let color1 = colors.default1;
-    let color2 = colors.default2;
-    if (isVipUser(userID)) {
-        color1 = colors.vip1;
-        color2 = colors.vip2;
-    }
+    // let color1 = colors.default1;
+    // let color2 = colors.default2;
+    // if (isVipUser(userID)) {
+    //     color1 = colors.vip1;
+    //     color2 = colors.vip2;
+    // }
 
-    const imageURL1 = `https://via.placeholder.com/1200x628/${color1}/FFFFFF.png?text=${encodeURI(`Ad for ${user}`)}`;
+    const imageURL1 = `https://uploads-ssl.webflow.com/6667990ab718954576a216de/66b2914d8e7eaeba18b84ee6_Back%20To%20School%20(1).jpg`;
     const imageURL2 = `https://via.placeholder.com/1200x628/${color2}/FFFFFF.png?text=${encodeURI(`Ad for ${user}`)}`;
-    let redirectURL = `${baseURL}/landing-page`;
+    // let redirectURL = `${baseURL}/landing-page`;
+    let redirectURL = `#`;
 
     // By adding the user_id as a query parameter in the redirect url here,
     // you will be able to customize the content that the user sees when they click on your ad in the app.
-    // You can add additional query parameters for state management as necessary for your campaign.
-    if (req.body.user_id) {
-        redirectURL = redirectURL + `?user_id=${req.body.user_id}`
-    }
+    // // You can add additional query parameters for state management as necessary for your campaign.
+    // if (req.body.user_id) {
+    //     redirectURL = redirectURL + `?user_id=${req.body.user_id}`
+    // }
 
     // This is the response format required by the Mariana Tek platform to serve your ad. Other response data attributes will not be recogonized.
     // NOTE: All urls must be served via https.
@@ -107,10 +108,6 @@ app.post('/ad', (req, res) => {
                 image_url: imageURL1,
                 redirect_url: redirectURL
             },
-            {
-                image_url: imageURL2,
-                redirect_url: redirectURL
-            }
         ]
     };
 
